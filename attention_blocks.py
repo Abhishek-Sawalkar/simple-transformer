@@ -24,7 +24,7 @@ def multihead_attention(query,key,value,mask=False,heads=8):
     '''
     d_model = query.get_shape().as_list()[-1] # Embedding Dimension
     
-    assert d_model / heads == 0, 'Embedding dimensions must be divisble by number of heads'
+    assert d_model % heads == 0, 'Embedding dimensions must be divisble by number of heads'
 
     d_k = d_model / heads
 
